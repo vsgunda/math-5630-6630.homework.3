@@ -1,4 +1,4 @@
-# Coding Assignment 3: Interpolation (1)
+# Programming Assignment 3: Interpolation (1)
 
 Problems can be found on Canvas.
 
