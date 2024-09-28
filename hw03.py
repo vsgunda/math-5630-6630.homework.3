@@ -83,11 +83,11 @@ def p2():
 
     for i in range(2):
         for n in range(5, 60, 5):
-            eq_data = [(x, funcs[i](x)) for x in np.linspace(-1, 1, n)]
+            eq_data = [(x, funcs[i](x)) for x in np.linspace(-1, 1, n+1)]
             y = p1(eq_data, eval_pts)
             eq_error = np.max(np.abs(funcs[i](eval_pts) - y))
 
-            cheb_data = [(np.cos((2 * k + 1) * np.pi / (2 * n)), funcs[i](np.cos((2 * k + 1) * np.pi / (2 * n)))) for k in range(n)]
+            cheb_data = [(np.cos((2 * k + 1) * np.pi / (2 * n + 2)), funcs[i](np.cos((2 * k + 1) * np.pi / (2 * n + 2)))) for k in range(n+1)]
             y = p1(cheb_data, eval_pts)
             cheb_error = np.max(np.abs(funcs[i](eval_pts) - y))
 
@@ -155,7 +155,7 @@ def p3():
     print('|---|---------------------------------------|-------------------------------------|');
     for i in range(2):
         for n in range(5, 60, 5):
-            ex_cheb_data = [(np.cos((k) * np.pi / (n)), funcs[i](np.cos(k * np.pi / (n)))) for k in range(n)]
+            ex_cheb_data = [(np.cos((k) * np.pi / (n)), funcs[i](np.cos(k * np.pi / (n)))) for k in range(n+1)]
             y = p1(ex_cheb_data, eval_pts)
             cheb_error = np.max(np.abs(funcs[i](eval_pts) - y))
             print(f'|{n:2d} | {funcs[i].__name__:30s}        | {cheb_error: 16.4e}                    |')

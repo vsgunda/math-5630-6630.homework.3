@@ -74,12 +74,12 @@ classdef hw03
                 func = funcs{i};
                 for n = 5:5:55
                     % Equally spaced nodes
-                    x = linspace(-1, 1, n);
+                    x = linspace(-1, 1, n+1);
                     y = func(x);
                     y_eval = hw03.p1([x', y'], eval_pts);
                     eq_error_f = max(abs(func(eval_pts) - y_eval));
                     % Chebyshev nodes
-                    x = cos((2 * (1:n) - 1) * pi / (2 * n));
+                    x = cos((2 * (1:(n+1)) - 1) * pi / (2 * n + 2));
                     y = func(x);
                     y_eval = hw03.p1([x', y'], eval_pts);
                     cheby_error_f = max(abs(func(eval_pts) - y_eval));
@@ -142,7 +142,7 @@ classdef hw03
                 func = funcs{i};
                 for n = 5:5:55
                     % extreme Chebyshev nodes
-                    x = cos(((1:n) - 1) * pi / (n-1));
+                    x = cos(((1:n+1) - 1) * pi / (n));
                     y = func(x);
                     y_eval = hw03.p1([x', y'], eval_pts);
                     ex_cheby_error_f = max(abs(func(eval_pts) - y_eval));
